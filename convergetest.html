@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Embedded Payment Demo</title>
+
+    <script>
+    
+        var transactionToken;
+        
+        var callback = {
+            onError: function (error) {
+                showResult("error", error);
+            },
+            onDeclined: function (response) {
+                showResult("declined", JSON.stringify(response));
+            },
+            onApproval: function (response) {
+                showResult("approval", JSON.stringify(response));
+            },
+            onCancelled: function () {
+                showResult("cancelled", "");
+            }
+        };
+        
+        function initiateCheckoutJS () {
+            var tokenRequest = {
+                ssl_merchant_id: "965404",
+                ssl_user_id: "GLNweb1"),
+                ssl_pin: "T9QGKY9VKGHV7Z7ZXDTYIGKYLN2F9N9KND9IN3M9NII8R87LFNQFAVXFWSVTMJF7",
+                ssl_transaction_type: "ccsale")//,
+                //ssl_amount: $("#ssl_amount").val() //POST variable from cart page
+            };
+            $.post("https://demo.convergepay.com/hosted-payments/transaction_token", tokenRequest, function( data ) {
+                $("#token").html(data);
+                transactionToken = data;
+                initiateEwallets();
+            });
+            return false;
+        }
+        
+        function initiateEwallets () {
+            var paymentData = {
+                ssl_txn_auth_token: transactionToken
+            };
+            var visaCheckoutButtonOptions = {
+                size: '154' 
+            };
+            ConvergeEmbeddedPayment.initVisaCheckout('visa-checkout-button', visaCheckoutButtonOptions, paymentData, callback);
+            ConvergeEmbeddedPayment.initPayPalCheckout('paypal-checkout-button', paymentData, callback);
+            ConvergeEmbeddedPayment.initPayPalCredit('paypal-credit-button', paymentData, callback);
+            ConvergeEmbeddedPayment.initMasterPass('masterpass-button', paymentData, callback);
+            return false;
+        }
+        
+        function payWithCreditCard () {
+            var paymentData = {
+                ssl_txn_auth_token: transactionToken,
+                ssl_card_number: $("#ssl_card_number").val(),
+                ssl_exp_date: $("#ssl_exp_date").val(),
+                ssl_cvv2cvc2: $("#ssl_cvv2cvc2").val()
+            };
+            ConvergeEmbeddedPayment.pay(paymentData, callback);
+            return false;
+        }
+        
+        function showResult (status, msg, hash) {
+            document.getElementById('txn_status').innerHTML = "<b>" + status + "</b>";
+            document.getElementById('txn_response').innerHTML = msg + "</b>";
+            document.getElementById('txn_hash').innerHTML = hash;
+        }
+    </script>
+    
+  </head>
+  <body>
+        <!--<form name="getSessionTokenForm">
+            Converge Account Number: <input type="text" id="ssl_merchant_id" name="ssl_merchant_id" size="6" value=""> <br>
+            API User ID: <input type="text" id="ssl_user_id" name="ssl_user_id" size="20" value=""> <br>
+            API User Terminal Identifier: <input type="text" id="ssl_pin" name="ssl_pin" size="64" value=""> <br>
+            Transaction Type: <input type="text" id="ssl_transaction_type" name="ssl_transaction_type" value=""> <br>
+            Transaction Amount: <input type="text" id="ssl_amount" name="ssl_amount" value=""> <br> <br>
+            <button onclick="return initiateCheckoutJS();">Initiate Checkout.js</button> <br>
+        </form>-->
+        <br>
+		<script>
+			initiateCheckoutJS();
+		</script>
+        Transaction Token: <span id="token"></span> <br><br>
+        
+        <form name="creditCardForm">
+            Card Number: <input id="ssl_card_number" type="text" name="ssl_card_number" value=""> <br>
+            Expiration Date: <input id="ssl_exp_date" type="text" name="ssl_exp_date" value=""> <br>
+            CVV2: <input id="ssl_cvv2cvc2" type="text" name="ssl_cvv2cvc2" value=""> <br><br>
+            <button onclick="return payWithCreditCard();">Pay With Credit Card</button>
+        </form>
+        
+        <br><br>
+        <div id="visa-checkout-button"></div>
+        <br>
+        <div id="paypal-checkout-button"></div>
+        <br>
+        <div id="paypal-credit-button"></div>
+        <br>
+        <div id="masterpass-button"></div>
+        <br>
+        
+        Transaction Status:<div id="txn_status"></div>
+        <br>
+        Transaction Response:<div id="txn_response"></div>
+        <br>
+        Transaction Hash Value:<div id="txn_hash"></div>
+  
+
+</body>	
+<script src="https://www.convergepay.com/hosted-payments/Checkout.js"></script>
+<script src="checkout.js"></script>
+    <script src="./Embedded Payment Demo_files/jquery.js"></script>
+    <script src="./Embedded Payment Demo_files/Checkout.js"></script></html>

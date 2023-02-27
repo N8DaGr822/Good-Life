@@ -1,0 +1,440 @@
+body {
+    background-color: #dcffb3;
+	background-image: url('../images/leafBackground.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+    font-family: Trebuchet, Helvetica, sans-serif;
+    color: #ffffee;
+}
+
+header,
+nav,
+footer,
+h1,
+h2,
+h3{
+    text-align: center;
+    padding: 5px;
+	
+}
+
+header {
+	padding: 0px;
+
+}
+header h2,
+footer h3 {
+	color: #ffff99;
+}
+
+
+h1,
+h3 {
+    color: #448000;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+h2 {
+	color: #000000;
+}
+
+a { 
+    text-decoration: none;
+}
+
+nav {
+	/*position: fixed;*/
+	background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.4);
+	color: #ffff99;
+	width: 100%;
+	z-index: 1;
+	padding: 0px;
+	box-shadow: 0px 5px 5px #448000;
+	margin-bottom: 4px;
+}
+
+nav a:link {
+	color: #ffffee;
+}
+
+nav a:visited {
+	color: #ffffee;
+}
+
+nav a:hover {
+	color: #ffff99;
+	text-decoration: none;
+}
+
+nav ul,
+#shop {
+	margin: 3px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+nav li{
+		display: inline-block;
+		font-size: 1.5em;
+		padding: 2em;
+}
+
+
+#logo {
+	/*background-color: #333333;
+	background: linear-gradient(#333333, #e6e6e6);*/
+	padding: 5px;
+	display: inline;
+
+}
+
+
+a:link { 
+    color: #448000; /* link styles */
+}
+
+
+a:visited {
+	color: #448000;
+}
+
+a:hover { 
+    text-decoration: underline;
+}
+
+
+footer,
+nav {
+    clear: both; /* clear sidebar and content floats */
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    margin: auto;
+    display: block;
+	border-radius: 5px;
+}
+
+ul {
+	padding: 0px;
+}
+
+ul li{
+	padding: 3px;
+	list-style: none;
+	overflow: auto;
+}
+
+
+
+aside {
+	font-size: 1em;
+	padding: 5px;
+	
+}
+
+figcaption, 
+aside,
+#pemf li p,
+#massage li p,
+#providers li p {
+	font-style: italic;
+}
+
+
+/*table data styles*/
+
+td {
+	font-size: 1.25em;
+	padding: 5px;
+	color: #333333;
+}
+
+th,
+td {
+		text-align: center;
+		
+}
+
+th {
+	font-size: 1.5em;
+	font-style: italic;
+	color: #FFFFEE;
+	background-color: #80ba45;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.6);
+}
+
+table {
+	overflow: auto;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	width: 75%;
+}
+.cartTable {
+	border: none;
+}
+.tsText {
+	font-style: italic;
+}
+/*form styles*/
+label { padding:10px;
+	display: inline-block;
+}
+input, textarea {  	padding: 5px;
+				border-radius: 4px;
+				opacity: 0.8;	
+				box-sizing: border-box;
+				margin: 0 auto;
+				max-width: 100%;
+}
+textarea {  vertical-align:top;
+}
+input[type="checkbox"], input[type="radio"]{ display: inline-block;
+}
+form { margin: 0 auto;
+	width: 55%;
+	padding: 1em;
+	border: 1px solid #333333;
+	border-radius: 1em;
+}
+input[type="submit"], input[type="reset"] {
+	font-family: Garamond, Georgia, serif;
+	font-size: 1em;
+}
+input[type="submit"]:hover, input[type="reset"]:hover {
+	background-color: #ffffff;
+}
+	
+#container,
+ul li,
+p,
+table,
+th,
+td
+ {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#container {
+    width: 99%; /* main content wrapper */
+    background-color: #80ba45;
+	background-color: rgba(128, 186, 69,0.6);
+	text-align: center;
+	border-radius: 15px;
+	overflow: auto;
+
+}
+
+#products, 
+#distributers, 
+#services,
+#massage,
+#iridology,
+#accupuncture,
+#footDetox,
+#pemf,
+#sauna,
+#providers,
+#contact {
+	background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.85);
+	border-radius: 5px;
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	color: #000000;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#shop {
+	background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.85);
+	border-radius: 5px;
+}
+#servicesLinks {
+    background-color: #80ba45;
+	background-color: rgba(128, 186, 69,0.7);
+
+}
+#servicesLinks li {
+	display: inline-block;
+	padding: 5px;
+}
+
+#servicesLinks a:link {
+	color: #ffffee;
+}
+
+#servicesLinks a:hover {
+	color: #ffff99;
+}
+
+#servicesLinks a:visited {
+	color: #ffffee;
+}
+
+#calendar {
+	background-image: url('../images/yellowLeaves.jpg');
+	color: #ffffee;
+	color: rgba(255, 255, 238, 0.7);
+	font-size: 2.5em;
+	border-radius: 5px;
+}
+#iridology,
+#accupuncture,
+#pemf,
+#footDetox,
+#sauna {
+	width: 48%;
+	padding: 2px;
+}
+
+#massageLeft,
+#massageRight {
+	width: 48%;
+	padding: 2px;
+}
+
+#massage h4 {
+	font-style: bold;
+}
+
+.left,
+.boxLeft {
+	float: left;
+
+}
+
+.right,
+.boxRight {
+	float: right;
+}
+
+.boxLeft,
+.boxRight {
+	width: 45%;
+	padding: 10px;
+	margin: 5px;
+	border: 1px solid #030303;
+	border-radius: 15px 5px;
+}
+
+.boxLeft {
+	text-align: left;
+}
+.boxRight {
+	text-align: center;
+}
+
+#facebook{
+	border-radius: 15px;
+	padding: 5px;
+	clear: both;
+}
+/*collapsible shop categories*/
+.collapsible {
+	background-color: #ffff99;
+	color: #333333;
+	clear: both;
+}
+
+.active, 
+.collapsible:hover {
+	background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.7);
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.content {
+	background-color: #ffffee;
+	background-color: rgba(255, 255, 238, 0.7);
+	color: #333333;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	clear: both;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+
+#desktop {
+    display: inline;
+}
+
+#mobile {
+    display: none;
+}
+
+/* media query tablet */
+@media only screen and (max-width: 64em) {
+	body { margin: 0;
+		background-color: #FFFFFF;
+	}
+	main, footer { margin-left: 0;
+	}
+	nav { float: none;
+		width: auto;
+		text-align: center;
+		padding: 0.5em;
+	}
+	nav li { display: inline;
+			padding: 0.25em 0.75em;
+	}
+	#container { width: 100%;
+	}
+}
+
+/* media query mobile */
+@media only screen and (max-width: 37.5em) {
+	header { padding: 0;
+	}
+	main { padding: 0.1em 1em;
+		font-size: 90%;
+	}
+
+	nav { padding: 0;
+	}
+	nav li { margin: 0;
+		border-bottom: 2px #330000;
+	}
+	nav a, nav li{ display: block;
+	}
+	label { float: none;
+			text-align: left;
+	}
+	input[type="submit"] { margin-left: 0;
+	}
+	#container {
+		width: 100%;
+	}
+	#mobile {display: inline;
+	}
+	#desktop {display: none;
+	}
+	#wallTile, #floorTile, #trim, #hardwood, #paint, #laminate, #vinyl  {
+		max-width: 80%;
+	}
+}
